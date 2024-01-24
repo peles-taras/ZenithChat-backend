@@ -15,9 +15,12 @@ public class CorsConfig {
         configuration.addAllowedOrigin("http://localhost:8080");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/ws", configuration);
+        source.registerCorsConfiguration("/ws/**", configuration);
         return source;
     }
+
+
 }
